@@ -1,0 +1,21 @@
+{
+    "name": "agielks/yii2-json-log",
+    "description": "Convert your yii2 application logs as json and save it to file, redis, or logstash",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","json","log","redis","logstash"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Agiel K. Saputra",
+            "email": "agielkurniawans@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "\\agielks\\yii2\\jsonlog\\": "src/"
+        }
+    }
+}
