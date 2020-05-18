@@ -1,8 +1,7 @@
 <?php
 /**
- * @link https://tracer.uns.ac.id/
  * @author Agiel K. Saputra <agielkurniawans@gmail.com>
- * @copyright Copyright (c) 2020 UPT TIK UNS
+ * @copyright Copyright (c) Agiel K. Saputra
  */
 
 namespace agielks\yii2\jsonlog;

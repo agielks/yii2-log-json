@@ -1,8 +1,7 @@
 <?php
 /**
- * @link https://tracer.uns.ac.id/
  * @author Agiel K. Saputra <agielkurniawans@gmail.com>
- * @copyright Copyright (c) 2020 UPT TIK UNS
+ * @copyright Copyright (c) Agiel K. Saputra
  */
 
 namespace agielks\yii2\jsonlog;
@@ -34,9 +33,9 @@ class LogstashTarget extends Target
             if ($socket = stream_socket_client($this->dsn, $errorNumber, $error, 30)) {
                 fwrite($socket, $messages);
                 fclose($socket);
+            } else {
+                throw new Exception('Failed to connect');
             }
-
-            throw new Exception('Failed to connect');
         } catch (Exception $e) {
             new Dispatcher([
                 'targets' => [
