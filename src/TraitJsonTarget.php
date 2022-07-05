@@ -4,7 +4,7 @@
  * @copyright Copyright (c) Agiel K. Saputra
  */
 
-namespace agielks\yii2\jsonlog;
+namespace agielks\yii2\log\json;
 
 use Yii;
 use yii\base\Application;
