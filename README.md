@@ -1,11 +1,8 @@
-Yii2 Json Log Target
+Yii2 Log Json Target
 ====================
 Convert your yii2 application logs as json and save it to file, redis, or logstash
 
 ## Installation
-
-1. Installation
-------------
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
@@ -26,44 +23,79 @@ to the require section of your `composer.json` file.
 ## Basic usage
 
 ### File Target
-Update your configuration file `common/main.php`
-
 ```php
 'components' => [
     // ...
-    's3' => [
-        'class' => 'agielks\yii2\aws\s3\Service',
-        'endpoint' => 'my-endpoint',
-        'usePathStyleEndpoint' => true,
-        'credentials' => [ // Aws\Credentials\CredentialsInterface|array|callable
-            'key' => 'my-key',
-            'secret' => 'my-secret',
+    'log' => [
+        'traceLevel' => YII_DEBUG ? 3 : 0,
+        'targets' => [
+            [
+                'class' => 'agielks\yii2\log\json\FileTarget',
+                'levels' => ['error', 'warning'],
+                'except' => [
+                    'yii\web\HttpException:*',
+                ],
+            ],
         ],
-        'region' => 'my-region',
-        'defaultBucket' => 'my-bucket',
-        'defaultAcl' => 'public-read',
     ],
     // ...
 ],
 ```
 
-### Redis Target
-Update your configuration file `common/main.php`
-
+### Logstash Target Configuration
 ```php
-
+'components' => [
+    // ...
+    'log' => [
+        'traceLevel' => YII_DEBUG ? 3 : 0,
+        'targets' => [
+            [
+                'class' => 'agielks\yii2\log\json\LogstashTarget',
+                'dsn' => '127.0.0.1:5000',
+                'index' => 'my-index',
+                'type' => 'log',
+                'levels' => ['error', 'warning'],
+                'except' => [
+                    'yii\web\HttpException:*',
+                ],
+            ],
+        ],
+    ],
+    // ...
+],
 ```
 
-### Logstash Target
-Update your configuration file `common/main.php`
-
+### Redis Target Configuration
 ```php
+'components' => [
+    // ...
 
+    // Redis connection
+    'redis' => [
+        'class' => 'yii\redis\Connection',
+        'hostname' => '127.0.0.1',
+        'port' => 6379,
+        'database' => 0,
+    ],
+
+    // Redis log configuration
+    'log' => [
+        'traceLevel' => YII_DEBUG ? 3 : 0,
+        'targets' => [
+            [
+                'class' => 'agielks\yii2\log\json\RedisTarget',
+                'db' => 'redis',
+                'levels' => ['error', 'warning'],
+                'except' => [
+                    'yii\web\HttpException:*',
+                ],
+            ],
+        ],
+    ],
+    // ...
+],
 ```
 
-
-## License
-
-Yii2 AWS S3 is licensed under the MIT License.
-
-See the [LICENSE](LICENSE) file for more information.
+### More Usage
+- [https://www.yiiframework.com/doc/api/2.0/yii-log-target](https://www.yiiframework.com/doc/api/2.0/yii-log-target)
+- [https://www.yiiframework.com/doc/guide/2.0/en/runtime-logging](https://www.yiiframework.com/doc/guide/2.0/en/runtime-logging)
