@@ -15,13 +15,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist agielks/yii2-log-json "*"
+php composer.phar require --prefer-dist agielks/yii2-log-json "~1.0"
 ```
 
 or add
 
 ```
-"agielks/yii2-log-json": "*"
+"agielks/yii2-log-json": "~1.0"
 ```
 
 to the require section of your `composer.json` file.
