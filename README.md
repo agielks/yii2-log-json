@@ -2,6 +2,12 @@ Yii2 Log Json Target
 ====================
 Convert your yii2 application logs as json and save it to file, redis, or logstash
 
+[![Latest Stable Version](http://poser.pugx.org/agielks/yii2-log-json/v)](https://packagist.org/packages/agielks/yii2-log-json) 
+[![Total Downloads](http://poser.pugx.org/agielks/yii2-log-json/downloads)](https://packagist.org/packages/agielks/yii2-log-json) 
+[![Latest Unstable Version](http://poser.pugx.org/agielks/yii2-log-json/v/unstable)](https://packagist.org/packages/agielks/yii2-log-json) 
+[![License](http://poser.pugx.org/agielks/yii2-log-json/license)](https://packagist.org/packages/agielks/yii2-log-json) 
+[![PHP Version Require](http://poser.pugx.org/agielks/yii2-log-json/require/php)](https://packagist.org/packages/agielks/yii2-log-json)
+
 ## Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
@@ -9,13 +15,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist agielks/yii2-json-log "*"
+php composer.phar require --prefer-dist agielks/yii2-log-json "*"
 ```
 
 or add
 
 ```
-"agielks/yii2-json-log": "*"
+"agielks/yii2-log-json": "*"
 ```
 
 to the require section of your `composer.json` file.
